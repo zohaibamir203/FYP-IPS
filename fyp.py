@@ -27,20 +27,23 @@ def data(ShopNo):
     ,'F-37','F-38','F-40','F-41']
 
     # First Floor Shop Pixel Array
-    FirstPixel = [[82,357],[112,357],[148,357],[182,357],[217,357],[248,357],[283,357],[317,357],[352,357],[386,357],[421,357],[421,318],[421,294],[421,267],[421,234],[421,201],
+    FirstPixels = [[82,357],[112,357],[148,357],[182,357],[217,357],[248,357],[283,357],[317,357],[352,357],[386,357],[421,357],[421,318],[421,294],[421,267],[421,234],[421,201],
     [421,162],[448,120],[371,187],[284,187],[200,187],[132,187],[421,215],[421,250],[421,282],[421,316],[356,357],[146,357],[82,313],[82,283],[82,252],[82,218],[82,317],[82,293],[82,268],
     [82,230],[82,201],[82,162],[55,120]]
 
     #Checking if passed parameter is of Ground Floor
     if (ShopNo[0] == "G"):
+        addressIndex = GroundShop.index(str(ShopNo))
+        pixelValue = GroundPixels[addressIndex]
         img = cv2.imread('ground.png')
         height, width= img.shape[:2]
         print ("Height "+str(height)+" Width "+str(width))
-        return "This is Ground Floor"
-        
-    #Checking if passed parameter is of First Floor
-    if (ShopNo[0] == "1"):
-        return "This is First Floor"
+        return ("This is Ground Floor and shop Coordinates are " + str(pixelValue))
 
+    #Checking if passed parameter is of First Floor
+    if (ShopNo[0] == "F"):
+        addressIndex = FirstShop.index(str(ShopNo))
+        pixelValue = FirstPixels[addressIndex]
+        return ("This is second Floor and shop Coordinates are " + str(pixelValue))
     
 app.run(host='0.0.0.0',port=3000)
