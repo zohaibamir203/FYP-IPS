@@ -112,13 +112,21 @@ def Path(loc,dest):
     GroundRPixels = [[110,75],[132,75],[147,75],[162,75],[164,75],[183,75],[188,75],[198,75],[202,75],[219,75],[233,75],[251,75],[264,75],[282,75],[282,115],[282,167],
     [282,212],[212,212],[212,250]]
      # First Floor Shop Array
-    FirstShop = ['F-40','F-39','F-38','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-29','F-01','F-02','F-03','F-04','F-05','F-06','F-07',
-    'F-08','F-09','F-28','F-10','F-11','F-12','F-27','F-13','F-26','F-14','F-25','F-15','F-24','F-16','F-17','F-18','F-20','F-21','F-22','F-23']
-
+    FirstFShop = ['F-41','F-40','Lift','F-38','F-33','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-01',
+    'F-02','F-03','F-29','F-04','F-05','F-06','F-07','F-08','F-09','F-28','F-10','F-11','F-12','F-27',
+    'F-13','F-26','F-14','F-25','F-15','F-24','F-16','F-17','F-18','F-19']
+    FirstSShop = ['F-41','F-40','Lift','EMPTY','F-23','F-22','F-21','F-20','F-17','F-18','F-19']
+    FirstTShop = ['F-20','F-21','F-22','F-23','EMPTY','F-38','F-33','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-01',
+    'F-02','F-03','F-29','F-04','F-05','F-06','F-07','F-08','F-09','F-28','F-10','F-11','F-12','F-27','F-13','F-26','F-14',
+    'F-25','F-15','F-24','F-16','F-17','F-20']
     # First Floor Shop Pixel Array
-    FirstPixels = [[162,82],[182,82],[201,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],[357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],
-    [357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],[294,421],[282,421],[267,421],[250,421],[234,421],[215,421],[201,421],[185,421],[162,421],[187,371],[187,284],[187,200],[187,132]]
-
+    FirstFPixels = [[110,82],[162,82],[182,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],
+    [357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],[357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],
+    [294,421],[282,421],[267,421],[250,421],[234,421],[215,421],[201,421],[185,421],[162,421],[110,421]]
+    FirstSPixels = [[110,82],[162,82],[182,82],[186,82],[186,132],[186,200],[186,284],[186,372],[186,421],[162,421],[110,421]]
+    FirstTPixels = [[186,372],[186,284],[186,200],[186,132],[186,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],
+    [357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],[357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],
+    [294,421],[282,421],[267,421],[250,421],[234,421],[215,421],[201,421],[185,421],[186,372]]
     # Mark the Location and Destination Shop
     def MarkCurrLoc(pixelValue):
             for x in range(pixelValue[0],pixelValue[0]+3):
@@ -211,7 +219,7 @@ def Path(loc,dest):
             MarkCurrLoc(DesPixel)
             CreatePath(LocIndex,DesIndex,GroundRPixels)  
         else:
-            print("Not in Array")
+            print("Address Not in Any Array")
         cv2.imwrite("Floor-Copy.png",img)
         with open("Floor-Copy.png","rb") as bites:
             return send_file(io.BytesIO(bites.read()),attachment_filename = "Floor.jpg",
@@ -219,13 +227,30 @@ def Path(loc,dest):
 
     if (str(loc[0]) == "F") and (str(dest)[0] == "F"):
         img = cv2.imread("FFloor.png")
-        LocIndex = FirstShop.index(str(loc))
-        DesIndex = FirstShop.index(str(dest))
-        LocPixel = FirstPixels[LocIndex]
-        DesPixel = FirstPixels[DesIndex]
-        MarkCurrLoc(LocPixel)
-        MarkCurrLoc(DesPixel)
-        CreatePath(LocIndex,DesIndex,FirstPixels)
+        if ((str(loc) in FirstSShop) and (str(dest) in FirstSShop)):
+            LocIndex = FirstSShop.index(str(loc))
+            DesIndex = FirstSShop.index(str(dest))
+            LocPixel = FirstSPixels[LocIndex]
+            DesPixel = FirstSPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,FirstSPixels)
+        elif ((str(loc) in FirstTShop) and (str(dest) in FirstTShop)):
+            LocIndex = FirstTShop.index(str(loc))
+            DesIndex = FirstTShop.index(str(dest))
+            LocPixel = FirstTPixels[LocIndex]
+            DesPixel = FirstTPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,FirstTPixels)
+        elif ((str(loc) in FirstFShop) and (str(dest) in FirstFShop)):
+            LocIndex = FirstFShop.index(str(loc))
+            DesIndex = FirstFShop.index(str(dest))
+            LocPixel = FirstFPixels[LocIndex]
+            DesPixel = FirstFPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,FirstFPixels)
         cv2.imwrite("Floor-Copy.png",img)
         with open("Floor-Copy.png","rb") as bites:
             return send_file(io.BytesIO(bites.read()),attachment_filename = "Floor.jpg",
