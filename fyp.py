@@ -94,15 +94,23 @@ def Path(loc,dest):
     path =[]
 
     # Ground Floor Shop Array
-    GroundShop = ['G-35','G-36','G-33','G-37','G-38','G-32','G-39','G-31','G-40','G-30','G-29','G-28','G-27','G-01','G-02','G-26',
-    'G-03','G-25','G-04','G-05','G-24','G-06','G-23','G-07','G-08A','G-09','G-11A','G-11','G-12','G-22','G-13','G-21','G-14','G-20','G-19',
-    'G-15','G-18','G-17']
-
+    GroundFShop = ['G-34','G-35','G-36','G-33','G-37','G-38','Lift','G-39','G-31','G-40','G-30','G-40A','G-29','G-28','G-27','G-01','G-02','G-26',
+    'G-03','G-25','G-04','G-05','G-24','G-06','G-23','G-07','G-08','G-09','G-11A','G-11','G-22A','G-12','G-22','G-13','G-21','G-14',
+    'G-20','G-19','G-15','G-18','G-17','G-16']
+    GroundSShop = ['G-41','G-42','EMPTY','EMPTY','G-43','EMPTY','EMPTY','G-05','G-24','G-06','G-23','G-07','G-08','G-09','G-11A','G-11',
+    'G-22A','G-12','G-22','G-13','G-21','G-14','G-20','G-19','G-15','G-18','G-17','G-16']
+    GroundTShop = ['G-04','G-25','G-03','G-26','G-02','G-01','G-27','G-28','EMPTY','G-41','G-42','EMPTY','EMPTY','G-43']
+    GroundRShop = ['G-34','G-35','G-36','G-33','G-37','G-38','Lift','G-39','G-31','G-40','G-30','G-40A','G-29','EMPTY','G-41','G-42',
+    'EMPTY','EMPTY','G-43']
     # Ground Floor Shop Pixels Array
-    GroundPixels = [[132,75],[147,75],[162,75],[164,75],[183,75],[188,75],[198,75],[202,75],[219,75],[233,75],[264,75],[293,75],[318,75],[354,75],[354,115],[354,122],
-    [354,148],[354,174],[354,188],[354,308],[354,328],[354,350],[354,380],[354,386],[354,429],[316,429],[293,429],[266,429],[240,429],[218,429],[202,429],[198,429],[189,429],[181,429],[164,429],
-    [161,429],[147,429],[131,429]]
-    
+    GroundFPixels = [[110,75],[132,75],[147,75],[162,75],[164,75],[183,75],[188,75],[198,75],[202,75],[219,75],[233,75],[251,75],[264,75],[293,75],[318,75],[354,75],[354,115],[354,122],
+    [354,148],[354,174],[354,188],[354,308],[354,328],[354,350],[354,380],[354,386],[354,429],[316,429],[293,429],[266,429],[251,429],[240,429],[218,429],[202,429],[198,429],[189,429],
+    [181,429],[164,429],[161,429],[147,429],[131,429],[110,429]]
+    GroundSPixels = [[282,115],[282,167],[282,212],[212,212],[212,250],[212,291],[354,291],[354,308],[354,328],[354,350],[354,380],[354,386],[354,429],[316,429],[293,429],[266,429],
+    [251,429],[240,429],[218,429],[202,429],[198,429],[189,429],[181,429],[164,429],[161,429],[147,429],[131,429],[110,429]]
+    GroundTPixels = [[354,188],[354,174],[354,148],[354,122],[354,115],[354,75],[318,75],[293,75],[282,75],[282,115],[282,167],[282,212],[212,212],[212,250]]
+    GroundRPixels = [[110,75],[132,75],[147,75],[162,75],[164,75],[183,75],[188,75],[198,75],[202,75],[219,75],[233,75],[251,75],[264,75],[282,75],[282,115],[282,167],
+    [282,212],[212,212],[212,250]]
      # First Floor Shop Array
     FirstShop = ['F-40','F-39','F-38','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-29','F-01','F-02','F-03','F-04','F-05','F-06','F-07',
     'F-08','F-09','F-28','F-10','F-11','F-12','F-27','F-13','F-26','F-14','F-25','F-15','F-24','F-16','F-17','F-18','F-20','F-21','F-22','F-23']
@@ -170,13 +178,40 @@ def Path(loc,dest):
 
     if (str(loc[0]) == "G") and (str(dest)[0] == "G"):
         img = cv2.imread("GFloor.png")
-        LocIndex = GroundShop.index(str(loc))
-        DesIndex = GroundShop.index(str(dest))
-        LocPixel = GroundPixels[LocIndex]
-        DesPixel = GroundPixels[DesIndex]
-        MarkCurrLoc(LocPixel)
-        MarkCurrLoc(DesPixel)
-        CreatePath(LocIndex,DesIndex,GroundPixels)
+        if((str(loc) in GroundFShop) and  (str(dest) in GroundFShop)):
+            LocIndex = GroundFShop.index(str(loc))
+            DesIndex = GroundFShop.index(str(dest))
+            LocPixel = GroundFPixels[LocIndex]
+            DesPixel = GroundFPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,GroundFPixels)
+        elif((str(loc) in GroundSShop) and (str(dest) in GroundSShop)):
+            LocIndex = GroundSShop.index(str(loc))
+            DesIndex = GroundSShop.index(str(dest))
+            LocPixel = GroundSPixels[LocIndex]
+            DesPixel = GroundSPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,GroundSPixels)
+        elif((str(loc)in GroundTShop) and (str(dest) in GroundTShop)):
+            LocIndex = GroundTShop.index(str(loc))
+            DesIndex = GroundTShop.index(str(dest))
+            LocPixel = GroundTPixels[LocIndex]
+            DesPixel = GroundTPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,GroundTPixels)  
+        elif((str(loc) in GroundRShop) and (str(dest) in GroundRShop)):
+            LocIndex = GroundRShop.index(str(loc))
+            DesIndex = GroundRShop.index(str(dest))
+            LocPixel = GroundRPixels[LocIndex]
+            DesPixel = GroundRPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,GroundRPixels)  
+        else:
+            print("Not in Array")
         cv2.imwrite("Floor-Copy.png",img)
         with open("Floor-Copy.png","rb") as bites:
             return send_file(io.BytesIO(bites.read()),attachment_filename = "Floor.jpg",
