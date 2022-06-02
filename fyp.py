@@ -119,6 +119,10 @@ def Path(loc,dest):
     FirstTShop = ['F-20','F-21','F-22','F-23','EMPTY','F-38','F-33','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-01',
     'F-02','F-03','F-29','F-04','F-05','F-06','F-07','F-08','F-09','F-28','F-10','F-11','F-12','F-27','F-13','F-26','F-14',
     'F-25','F-15','F-24','F-16','F-17','F-20']
+    FirstRShop = ['F-41','F-40','Lift','EMPTY','F-23','F-22','F-21','F-20','F-17','F-16','F-24','F-15','F-23','F-14','F-26',
+    'F-13','F-27','F-12','F-11']
+    FirstHShop = ['F-19','F-18','F-17','F-20','F-21','F-22','F-23','Lift','F-38','F-33','F-37','F-32','F-36','F-31','F-35',
+    'F-30','F-34','F-01']
     # First Floor Shop Pixel Array
     FirstFPixels = [[110,82],[162,82],[182,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],
     [357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],[357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],
@@ -127,6 +131,10 @@ def Path(loc,dest):
     FirstTPixels = [[186,372],[186,284],[186,200],[186,132],[186,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],
     [357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],[357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],
     [294,421],[282,421],[267,421],[250,421],[234,421],[215,421],[201,421],[185,421],[186,372]]
+    FirstRPixels = [[110,82],[162,82],[182,82],[186,82],[186,132],[186,200],[186,284],[186,372],[186,421],[201,421],[215,421],[234,421],[251,421],[267,421],[282,421],
+    [293,421],[315,421],[318,421],[357,421]]
+    FirstHPixels = [[110,421],[162,421],[186,421],[186,372],[186,284],[186,200],[186,132],[186,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82]
+    ,[313,82],[317,82],[357,82]]
     # Mark the Location and Destination Shop
     def MarkCurrLoc(pixelValue):
             for x in range(pixelValue[0],pixelValue[0]+3):
@@ -235,6 +243,22 @@ def Path(loc,dest):
             MarkCurrLoc(LocPixel)
             MarkCurrLoc(DesPixel)
             CreatePath(LocIndex,DesIndex,FirstSPixels)
+        elif ((str(loc) in FirstRShop) and (str(dest) in FirstRShop)):
+            LocIndex = FirstRShop.index(str(loc))
+            DesIndex = FirstRShop.index(str(dest))
+            LocPixel = FirstRPixels[LocIndex]
+            DesPixel = FirstRPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,FirstRPixels)
+        elif ((str(loc) in FirstHShop) and (str(dest) in FirstHShop)):
+            LocIndex = FirstHShop.index(str(loc))
+            DesIndex = FirstHShop.index(str(dest))
+            LocPixel = FirstHPixels[LocIndex]
+            DesPixel = FirstHPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,FirstHPixels)
         elif ((str(loc) in FirstTShop) and (str(dest) in FirstTShop)):
             LocIndex = FirstTShop.index(str(loc))
             DesIndex = FirstTShop.index(str(dest))
@@ -288,6 +312,10 @@ def lift(loc,dest):
     FirstTShop = ['F-20','F-21','F-22','F-23','EMPTY','F-38','F-33','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-01',
     'F-02','F-03','F-29','F-04','F-05','F-06','F-07','F-08','F-09','F-28','F-10','F-11','F-12','F-27','F-13','F-26','F-14',
     'F-25','F-15','F-24','F-16','F-17','F-20']
+    FirstRShop = ['F-41','F-40','Lift','EMPTY','F-23','F-22','F-21','F-20','F-17','F-16','F-24','F-15','F-23','F-14','F-26',
+    'F-13','F-27','F-12','F-11']
+    FirstHShop = ['F-19','F-18','F-17','F-20','F-21','F-22','F-23','Lift','F-38','F-33','F-37','F-32','F-36','F-31','F-35',
+    'F-30','F-34','F-01']
     # First Floor Shop Pixel Array
     FirstFPixels = [[110,82],[162,82],[182,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],
     [357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],[357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],
@@ -296,7 +324,10 @@ def lift(loc,dest):
     FirstTPixels = [[186,372],[186,284],[186,200],[186,132],[186,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82],[313,82],[317,82],[357,82],
     [357,112],[357,146],[357,148],[357,182],[357,217],[357,248],[357,283],[357,317],[357,312],[357,356],[357,386],[357,421],[318,421],[316,421],
     [294,421],[282,421],[267,421],[250,421],[234,421],[215,421],[201,421],[185,421],[186,372]]
-
+    FirstRPixels = [[110,82],[162,82],[182,82],[186,82],[186,132],[186,200],[186,284],[186,372],[186,421],[201,421],[215,421],[234,421],[251,421],[267,421],[282,421],
+    [293,421],[315,421],[318,421],[357,421]]
+    FirstHPixels = [[110,421],[162,421],[186,421],[186,372],[186,284],[186,200],[186,132],[186,82],[201,82],[218,82],[230,82],[252,82],[268,82],[283,82],[293,82]
+    ,[313,82],[317,82],[357,82]]
     # Mark the Location and Destination Shop
     def MarkCurrLoc(pixelValue):
             for x in range(pixelValue[0],pixelValue[0]+3):
@@ -403,6 +434,22 @@ def lift(loc,dest):
                 MarkCurrLoc(ShopPixel)
                 MarkCurrLoc(LiftPixel)
                 CreatePath (StartPos,EndPos,FirstFPixels)
+            elif(str(loc) in FirstRShop):
+                StartPos = FirstRShop.index(str(loc))
+                EndPos = FirstRShop.index('Lift')
+                ShopPixel = FirstRPixels[StartPos]
+                LiftPixel = FirstRPixels[EndPos]
+                MarkCurrLoc(ShopPixel)
+                MarkCurrLoc(LiftPixel)
+                CreatePath (StartPos,EndPos,FirstRPixels)
+            elif(str(loc) in FirstHShop):
+                StartPos = FirstHShop.index(str(loc))
+                EndPos = FirstHShop.index('Lift')
+                ShopPixel = FirstHPixels[StartPos]
+                LiftPixel = FirstHPixels[EndPos]
+                MarkCurrLoc(ShopPixel)
+                MarkCurrLoc(LiftPixel)
+                CreatePath (StartPos,EndPos,FirstHPixels)   
             else:
                 StartPos = FirstSShop.index(str(loc))
                 EndPos = FirstSShop.index('Lift')
@@ -412,15 +459,7 @@ def lift(loc,dest):
                 MarkCurrLoc(LiftPixel)
                 CreatePath (StartPos,EndPos,FirstSPixels)   
         elif(str(dest)[0] == 'F'):
-            if (str(dest) in FirstFShop):
-                StartPos = FirstFShop.index(str(dest))
-                EndPos = FirstFShop.index('Lift')
-                ShopPixel = FirstFPixels[StartPos]
-                LiftPixel = FirstFPixels[EndPos]
-                MarkCurrLoc(ShopPixel)
-                MarkCurrLoc(LiftPixel)
-                CreatePath (StartPos,EndPos,FirstFPixels)
-            else:
+            if (str(dest) in FirstSShop):
                 StartPos = FirstSShop.index(str(dest))
                 EndPos = FirstSShop.index('Lift')
                 ShopPixel = FirstSPixels[StartPos]
@@ -428,6 +467,30 @@ def lift(loc,dest):
                 MarkCurrLoc(ShopPixel)
                 MarkCurrLoc(LiftPixel)
                 CreatePath (StartPos,EndPos,FirstSPixels)
+            elif(str(dest) in FirstRShop):
+                StartPos = FirstRShop.index(str(dest))
+                EndPos = FirstRShop.index('Lift')
+                ShopPixel = FirstRPixels[StartPos]
+                LiftPixel = FirstRPixels[EndPos]
+                MarkCurrLoc(ShopPixel)
+                MarkCurrLoc(LiftPixel)
+                CreatePath (StartPos,EndPos,FirstRPixels)
+            elif(str(dest) in FirstHShop):
+                StartPos = FirstHShop.index(str(dest))
+                EndPos = FirstHShop.index('Lift')
+                ShopPixel = FirstHPixels[StartPos]
+                LiftPixel = FirstHPixels[EndPos]
+                MarkCurrLoc(ShopPixel)
+                MarkCurrLoc(LiftPixel)
+                CreatePath (StartPos,EndPos,FirstHPixels) 
+            else:
+                StartPos = FirstFShop.index(str(dest))
+                EndPos = FirstFShop.index('Lift')
+                ShopPixel = FirstFPixels[StartPos]
+                LiftPixel = FirstFPixels[EndPos]
+                MarkCurrLoc(ShopPixel)
+                MarkCurrLoc(LiftPixel)
+                CreatePath (StartPos,EndPos,FirstFPixels)
         cv2.imwrite("FirstFloorLift.png",img)
         path = [] 
 
