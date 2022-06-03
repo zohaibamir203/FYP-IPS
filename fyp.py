@@ -102,6 +102,9 @@ def Path(loc,dest):
     GroundTShop = ['G-04','G-25','G-03','G-26','G-02','G-01','G-27','G-28','EMPTY','G-41','G-42','EMPTY','EMPTY','G-43']
     GroundRShop = ['G-34','G-35','G-36','G-33','G-37','G-38','Lift','G-39','G-31','G-40','G-30','G-40A','G-29','EMPTY','G-41','G-42',
     'EMPTY','EMPTY','G-43']
+    GroundHShop = ['G-02','G-26','G-03','G-25','G-04','EMPTY','EMPTY','EMPTY','G-43']
+    GroundIShop = ['G-03','G-25','G-04','EMPTY','EMPTY','G-42','G-41']
+
     # Ground Floor Shop Pixels Array
     GroundFPixels = [[110,75],[132,75],[147,75],[162,75],[164,75],[183,75],[188,75],[198,75],[202,75],[219,75],[233,75],[251,75],[264,75],[293,75],[318,75],[354,75],[354,115],[354,122],
     [354,148],[354,174],[354,188],[354,308],[354,328],[354,350],[354,380],[354,386],[354,429],[316,429],[293,429],[266,429],[251,429],[240,429],[218,429],[202,429],[198,429],[189,429],
@@ -111,6 +114,8 @@ def Path(loc,dest):
     GroundTPixels = [[354,188],[354,174],[354,148],[354,122],[354,115],[354,75],[318,75],[293,75],[282,75],[282,115],[282,167],[282,212],[212,212],[212,250]]
     GroundRPixels = [[110,75],[132,75],[147,75],[162,75],[164,75],[183,75],[188,75],[198,75],[202,75],[219,75],[233,75],[251,75],[264,75],[282,75],[282,115],[282,167],
     [282,212],[212,212],[212,250]]
+    GroundHPixels = [[354,116],[354,123],[354,148],[354,175],[354,189],[354,212],[282,212],[212,212],[212,251]]
+    GroundIPixels = [[354,148],[354,175],[354,189],[354,212],[282,212],[282,168],[282,116]]
      # First Floor Shop Array
     FirstFShop = ['F-41','F-40','Lift','F-38','F-33','F-37','F-32','F-36','F-31','F-35','F-30','F-34','F-01',
     'F-02','F-03','F-29','F-04','F-05','F-06','F-07','F-08','F-09','F-28','F-10','F-11','F-12','F-27',
@@ -210,6 +215,22 @@ def Path(loc,dest):
             MarkCurrLoc(LocPixel)
             MarkCurrLoc(DesPixel)
             CreatePath(LocIndex,DesIndex,GroundSPixels)
+        elif((str(loc) in GroundHShop) and (str(dest) in GroundHShop)):
+            LocIndex = GroundHShop.index(str(loc))
+            DesIndex = GroundHShop.index(str(dest))
+            LocPixel = GroundHPixels[LocIndex]
+            DesPixel = GroundHPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,GroundHPixels)
+        elif((str(loc) in GroundIShop) and (str(dest) in GroundIShop)):
+            LocIndex = GroundIShop.index(str(loc))
+            DesIndex = GroundIShop.index(str(dest))
+            LocPixel = GroundIPixels[LocIndex]
+            DesPixel = GroundIPixels[DesIndex]
+            MarkCurrLoc(LocPixel)
+            MarkCurrLoc(DesPixel)
+            CreatePath(LocIndex,DesIndex,GroundIPixels)
         elif((str(loc)in GroundTShop) and (str(dest) in GroundTShop)):
             LocIndex = GroundTShop.index(str(loc))
             DesIndex = GroundTShop.index(str(dest))
