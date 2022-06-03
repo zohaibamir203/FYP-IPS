@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="shopCategory">
+        <item>Men Accessories</item>
+        <item>Women Accessories</item>
+        <item>Men Shoes</item>
+        <item>Men Casual Shoes</item>
+        <item>Men Formal Shoes</item>
+        <item>Women Shoes</item>
+        <item>Women Casual Shoes</item>
+        <item>Women Formal Shoes</item>
+        <item>Men Formal Clothes</item>
+        <item>Women Formal Clothes</item>
+        <item>Women Casual Clothes</item>
+        <item>Kids Clothing</item>
+        <item>Kids Toys</item>
+        <item>SportWear</item>
+    </string-array>
+</resources>

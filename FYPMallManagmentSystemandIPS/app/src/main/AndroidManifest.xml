@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fypmallmanagmentsystemandips">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FYPMallManagmentSystemAndIPS">
+        <activity
+            android:name=".AdminAdd"
+            android:exported="false"
+            android:label="@string/addAdmin1" />
+        <activity
+            android:name=".Categories"
+            android:exported="false"
+            android:label="@string/categories" />
+        <activity
+            android:name=".ShopName"
+            android:exported="false"
+            android:label="@string/shopName" />
+        <activity
+            android:name=".SalesAlert"
+            android:exported="false"
+            android:label="@string/customer_menu_salesAlert" />
+        <activity
+            android:name=".RemoveShop"
+            android:exported="false"
+            android:label="@string/rmvShop" />
+        <activity
+            android:name=".AddShop"
+            android:exported="false"
+            android:label="@string/addShop" />
+        <activity
+            android:name=".AdminPanel"
+            android:exported="false"
+            android:label="@string/adminPanel" />
+        <activity
+            android:name=".ChangeCategory"
+            android:exported="false"
+            android:label="@string/assignCategory" />
+        <activity
+            android:name=".ManageSales"
+            android:exported="false"
+            android:label="@string/mngSales" />
+        <activity
+            android:name=".ChangeName"
+            android:exported="false"
+            android:label="@string/ChangeName" />
+        <activity
+            android:name=".ShopkeeperMenu"
+            android:exported="false"
+            android:label="@string/shopkeeperMenu" />
+        <activity
+            android:name=".LocateMe"
+            android:exported="false"
+            android:label="@string/customer_menu_locateMe" />
+        <activity
+            android:name=".AdminLogin"
+            android:exported="false"
+            android:label="@string/adminLogin" />
+        <activity
+            android:name=".ShopkeeperLogin"
+            android:exported="false"
+            android:label="@string/shopkeeperLogin" />
+        <activity
+            android:name=".CustomerMenu"
+            android:exported="false"
+            android:label="@string/customerMenu" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

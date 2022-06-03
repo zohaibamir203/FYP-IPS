@@ -550,4 +550,4 @@ def lift(loc,dest):
                          io.BytesIO(bites.read()),
                          attachment_filename='Floor.jpg',
                          mimetype='image/jpg') 
-app.run(host='0.0.0.0',port=3000)
+app.run(host='0.0.0.0')

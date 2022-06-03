@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundBlue"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toTopOf="@+id/txtHome"
+        app:layout_constraintEnd_toEndOf="@+id/txtHome"
+        app:layout_constraintStart_toStartOf="@+id/txtHome" />
+
+    <TextView
+        android:id="@+id/txtHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="I am a"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="130dp"
+        android:backgroundTint="@color/btnYellow"
+        android:text="@string/home_btn_customer"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtHome"
+        app:layout_constraintStart_toStartOf="@+id/txtHome"
+        app:layout_constraintTop_toBottomOf="@+id/txtHome" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnShopkeeper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
+        android:backgroundTint="@color/btnYellow"
+        android:text="@string/home_btn_shopkeeper"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnCustomer"
+        app:layout_constraintStart_toStartOf="@+id/btnCustomer"
+        app:layout_constraintTop_toBottomOf="@+id/btnCustomer" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdmin"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_btn_admin"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnShopkeeper" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

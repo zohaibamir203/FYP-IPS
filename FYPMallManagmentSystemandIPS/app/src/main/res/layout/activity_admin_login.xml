@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundBlue"
+    tools:context=".ShopkeeperLogin">
+
+    <TextView
+        android:id="@+id/txtAdminAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adminLogin"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputAdminAdd"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="120dp"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/btnYellow"
+        app:hintTextColor="@color/btnYellow"
+        app:layout_constraintEnd_toEndOf="@+id/txtAdminAdd"
+        app:layout_constraintStart_toStartOf="@+id/txtAdminAdd"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdminAdd">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/emailAddress"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputAddPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/btnYellow"
+        app:hintTextColor="@color/btnYellow"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputAdminAdd"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        app:endIconMode="password_toggle"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdminLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textStyle="bold"
+        android:backgroundTint="@color/btnYellow"
+        android:layout_marginTop="25dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtInputAddPassword"
+        app:layout_constraintStart_toStartOf="@+id/txtInputAddPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtInputAddPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdminAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addAdmin"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnAdminLogin"
+        app:layout_constraintStart_toStartOf="@+id/btnAdminLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdminLogin"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/white"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
