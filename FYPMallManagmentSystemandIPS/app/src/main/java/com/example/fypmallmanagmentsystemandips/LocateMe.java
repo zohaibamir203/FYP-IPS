@@ -159,17 +159,20 @@ public class LocateMe extends AppCompatActivity {
             }
         });
 
-        // Toast of Location when button is pressed
+        // Map Generated when Button Is Clicked.
         btnRoute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ImageView imgMap = findViewById(R.id.imgMap);
+                //  Check if both current and destination address on same floor and then fetch map accordingly.
                 if (currAddr.charAt(0) == destAddr.charAt(0)){
                     progressDialog1.show();
                     Picasso.get().setLoggingEnabled(true);
                     Picasso.get().load(url+"/from/"+currAddr+"/to/"+destAddr).into(imgMap);
                     progressDialog1.dismiss();
-                }else {
+                }
+                //  Check if both current and destination address on different floor and then fetch map accordingly.
+                else {
                     progressDialog1.show();
                     Picasso.get().setLoggingEnabled(true);
                     Picasso.get().load(url+"/from/"+currAddr+"/to/"+destAddr+"/lift").into(imgMap);
@@ -177,15 +180,6 @@ public class LocateMe extends AppCompatActivity {
                 }
             }
         });
-
-        // Testing Picasso
-
-        try {
-
-
-        }catch (Exception e){
-            Log.e("Error Picasso", String.valueOf(e));
-        }
 
         // Getting IP Address
 //        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
