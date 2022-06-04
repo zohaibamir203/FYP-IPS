@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class LocateMe extends AppCompatActivity {
     ArrayList<String> currLoc = new ArrayList<>();
     ArrayList<String> DestLoc = new ArrayList<>();
     String currAddr,destAddr,currName,destName;
+    String url = "http://192.168.100.20:5000";
 
     private String slctLocation,slctDestination;        // Selected Options in Spinner
 
@@ -57,15 +59,15 @@ public class LocateMe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locate_me);
 
-        // Setting Up Progress Dialog
+        // Setting Up Progress Dialog for Spinner
         ProgressDialog progressDialog = new ProgressDialog(LocateMe.this);
-        progressDialog.setTitle("Loading Data");
+        progressDialog.setTitle("Loading Shops Information");
         progressDialog.show();
+        // Setting Up Progress Dialog for Loading Image
+        ProgressDialog progressDialog1 = new ProgressDialog(LocateMe.this);
+        progressDialog1.setTitle("Fetching Map");
+        progressDialog1.setMessage("It will take few seconds.");
 
-        // Getting IP Address
-        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
-        String ipAddress = Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress()) + "0:5000";
-        Toast.makeText(this,ipAddress, Toast.LENGTH_SHORT).show();
         // Declaring Elements
         spnLocate = findViewById(R.id.spnLocate);
         spnDestination = findViewById(R.id.spnDestination);
@@ -86,6 +88,7 @@ public class LocateMe extends AppCompatActivity {
                         currLoc.add(dataSnapshot.getKey());
                         DestLoc.add(dataSnapshot.getKey());
                     }
+                    progressDialog.dismiss();
                 }
             }
 
@@ -109,7 +112,6 @@ public class LocateMe extends AppCompatActivity {
                 DestLoc
         );
         spnDestination.setAdapter(destinationAdapter);
-        progressDialog.dismiss();
         // Location Listener
         spnLocate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -161,18 +163,33 @@ public class LocateMe extends AppCompatActivity {
         btnRoute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LocateMe.this,currAddr+" "+destAddr,Toast.LENGTH_SHORT).show();
+                ImageView imgMap = findViewById(R.id.imgMap);
+                if (currAddr.charAt(0) == destAddr.charAt(0)){
+                    progressDialog1.show();
+                    Picasso.get().setLoggingEnabled(true);
+                    Picasso.get().load(url+"/from/"+currAddr+"/to/"+destAddr).into(imgMap);
+                    progressDialog1.dismiss();
+                }else {
+                    progressDialog1.show();
+                    Picasso.get().setLoggingEnabled(true);
+                    Picasso.get().load(url+"/from/"+currAddr+"/to/"+destAddr+"/lift").into(imgMap);
+                    progressDialog1.dismiss();
+                }
             }
         });
 
         // Testing Picasso
+
         try {
-            String url = "http://192.168.100.20:5000/from/G-04/to/F-40/lift";
-            ImageView imgMap = findViewById(R.id.imgMap);
-            Picasso.get().setLoggingEnabled(true);
-            Picasso.get().load(url).into(imgMap);
+
+
         }catch (Exception e){
             Log.e("Error Picasso", String.valueOf(e));
         }
+
+        // Getting IP Address
+//        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+//        String ipAddress = Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress()) + ":5000/from/G-04/to/F-40/lift";
+//        Toast.makeText(this, ipAddress, Toast.LENGTH_SHORT).show();
     }
 }
