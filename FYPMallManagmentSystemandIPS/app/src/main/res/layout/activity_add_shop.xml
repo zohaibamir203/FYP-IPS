@@ -88,12 +88,12 @@
         android:id="@+id/spnAddress"
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_height="40dp"
         android:layout_below="@+id/txtInputAddShopPassword"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="100dp"/>
+        android:layout_marginRight="100dp"
+        android:background="@color/white" />
 
 <!--    <TextView-->
 <!--        android:id="@+id/txtAddShopCategory"-->
@@ -116,12 +116,12 @@
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/spnAddress"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="150dp"
         android:backgroundTint="@color/btnYellow"
         android:text="@string/addShop"
-        android:textStyle="bold"
-        android:layout_below="@+id/spnAddress" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

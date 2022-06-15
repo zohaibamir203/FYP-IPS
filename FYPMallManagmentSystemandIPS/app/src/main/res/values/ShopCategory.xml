@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="shopCategory">
-        <item>Men Accessories</item>
-        <item>Women Accessories</item>
+        <item>Select Category</item>
+        <item>Departmental Store</item>
+        <item>Restaurants</item>
+        <item>Fast Food Chain</item>
+        <item>Pharmacies</item>
+        <item>Technology Stores</item>
+        <item>Pet Stores</item>
+        <item>Accessories</item>
+        <item>Bussiness Attire</item>
+        <item>Casual Wear</item>
+        <item>Formal Wear</item>
+        <item>Baby Clothes</item>
+        <item>Kids Wear</item>
+        <item>Mens Wear</item>
+        <item>Womens Wear</item>
         <item>Men Shoes</item>
-        <item>Men Casual Shoes</item>
-        <item>Men Formal Shoes</item>
         <item>Women Shoes</item>
-        <item>Women Casual Shoes</item>
-        <item>Women Formal Shoes</item>
-        <item>Men Formal Clothes</item>
-        <item>Women Formal Clothes</item>
-        <item>Women Casual Clothes</item>
-        <item>Kids Clothing</item>
-        <item>Kids Toys</item>
+        <item>Men Shalwar Kameez</item>
+        <item>Men Shalwar Kameez</item>
+        <item>Toys Store</item>
         <item>SportWear</item>
     </string-array>
 </resources>

@@ -37,7 +37,7 @@ public class LocateMe extends AppCompatActivity {
     ArrayList<String> currLoc = new ArrayList<>();
     ArrayList<String> DestLoc = new ArrayList<>();
     String currAddr,destAddr,currName,destName;
-    String url = "http://192.168.100.20:5000";
+    String url = "http://192.168.43.133:5000";
 
     private String slctLocation,slctDestination;        // Selected Options in Spinner
 

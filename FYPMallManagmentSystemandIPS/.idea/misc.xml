@@ -22,6 +22,8 @@
         <entry key="app/src/main/res/layout/activity_shop_name.xml" value="0.318359375" />
         <entry key="app/src/main/res/layout/activity_shopkeeper_login.xml" value="0.40989583333333335" />
         <entry key="app/src/main/res/layout/activity_shopkeeper_menu.xml" value="0.40989583333333335" />
+        <entry key="app/src/main/res/layout/cateogory_list_item.xml" value="0.40260416666666665" />
+        <entry key="app/src/main/res/layout/sales_list_item.xml" value="0.40260416666666665" />
         <entry key="app/src/main/res/layout/sales_offer_list_item.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.11944444444444445" />
       </map>

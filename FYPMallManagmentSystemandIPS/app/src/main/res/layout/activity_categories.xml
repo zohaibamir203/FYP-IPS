@@ -29,34 +29,32 @@
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSelect"
         android:layout_below="@+id/spnCategories"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="@string/select"
-        android:textStyle="bold"
         android:backgroundTint="@color/btnYellow"
-        android:layout_centerHorizontal="true"
         android:paddingLeft="30dp"
-        android:paddingRight="30dp"/>
+        android:paddingRight="30dp"
+        android:text="@string/select"
+        android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imgShops"
-        android:layout_width="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="300dp"
-        android:layout_below="@+id/btnSelect"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:src="@color/white" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@id/btnSelect"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="19dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShowMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgShops"
+        android:layout_below="@+id/categoryRecycler"
         android:backgroundTint="@color/btnYellow"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
