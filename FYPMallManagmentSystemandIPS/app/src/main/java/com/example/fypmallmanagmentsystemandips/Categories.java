@@ -88,6 +88,7 @@ public class Categories extends AppCompatActivity {
                                     categoryArray.add((String) dataSnapshot.getValue());
                                 }
                                 test.add(String.valueOf(categoryArray));
+                                Log.d("test 1 : ", String.valueOf(test));
                                 categoryArray.clear();
                             }
                         }
@@ -142,9 +143,5 @@ public class Categories extends AppCompatActivity {
                 categoryRecycler.setLayoutManager(new LinearLayoutManager(Categories.this));
             }
         });
-//        categories.add(new Category("McDonalds"));
-//        categories.add(new Category("KFC"));
-//        categories.add(new Category("Johny Jugnu"));
-
     }
 }
