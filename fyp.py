@@ -1,7 +1,8 @@
 # Importing Module
 import io
+from tokenize import String
 from turtle import pos
-from cv2 import COLOR_BAYER_BG2BGR, imread
+from cv2 import COLOR_BAYER_BG2BGR, add, imread
 from flask import Flask, send_file
 import cv2
 # Creating App
@@ -550,4 +551,99 @@ def lift(loc,dest):
                          io.BytesIO(bites.read()),
                          attachment_filename='Floor.jpg',
                          mimetype='image/jpg') 
+@app.route('/from/<List>')
+def plot(List):
+    # Ground Floor Shop Array
+    GroundShop = ['G-01','G-02','G-03','G-04','G-05','G-06','G-07','G-08','G-09','G-11A','G-11','G-12','G-13','G-15','G-16',
+    'G-17','G-18','G-19','G-20','G-21','G-22','G-22A','G-23','G-24','G-25','G-26','G-27','G-28','G-29','G-30','G-31','G-33','G-34','G-35','G-36'
+    ,'G-37','G-38','G-39','G-40','G-40A','G-41','G-42','G-43']
+
+    # Ground Floor Pixels
+    GroundShopPixels = [[374,64],[374,116],[374,148],[374,192],[374,311],[373,349],[374,390],[374,426],[317,444],[292,444],[266,444],[226,444],[201,441],[184,441],[161,441],[111,441],
+    [125,415],[142,415],[168,415],[176,415],[202,415],[225,415],[260,415],[315,381],[315,328],[329,176],[329,121],[313,59],[293,59],[275,59],[240,59],[202,62],[162,62],[115,62],[126,88],[144,88],
+    [161,88],[177,88],[193,88],[225,88],[261,88],[261,116],[260,166],[178,250]]
+
+     # First Floor Shop Array
+    FirstShop = ['F-01','F-02','F-03','F-04','F-05','F-06','F-07','F-08','F-09','F-10','F-11','F-12','F-13','F-14','F-15','F-16','F-17'
+    ,'F-18','F-19','F-20','F-21','F-22','F-23','F-24','F-25','F-26','F-27','F-28','F-29','F-30','F-31','F-32','F-33','F-34','F-35','F-36'
+    ,'F-37','F-38','F-40','F-41']
+
+    # First Floor Pixels
+    FirstShopPixels = [[353,49],[376,112],[376,148],[376,184],[376,217],[376,250],[377,284],[377,318],[377,354],[377,387],[377,423],[318,444],[292,441],[276,441],[230,441],[200,441],[185,441],
+    [162,441],[107,441],[141,372],[141,284],[141,200],[141,130],[213,381],[250,382],[281,381],[316,381],[338,381],[338,122],[313,122],[283,122],[250,122],[215,122],[316,57],[293,57],[267,57],
+    [232,57],[202,62],[163,62],[107,62]]
+
+    # Mark Pixel on Shop
+    def MarkCurrLocG(pixelValue):
+            
+            for x in range(pixelValue[0],pixelValue[0]+4):
+                for y in range(pixelValue[1],pixelValue[1]+4):
+                    img[x,y]=[0,0,255]
+
+            for x in range(pixelValue[0]-4,pixelValue[0]):
+                for y in range(pixelValue[1],pixelValue[1]+4):
+                    img[x,y]=[0,0,255]
+
+            for x in range(pixelValue[0]-4,pixelValue[0]):
+                for y in range(pixelValue[1]-4,pixelValue[1]):
+                    img[x,y]=[0,0,255]
+
+            for x in range(pixelValue[0],pixelValue[0]+4):
+                for y in range(pixelValue[1]-4,pixelValue[1]):
+                    img[x,y]=[0,0,255]
+    
+    def MarkCurrLocF(pixelValue):
+            
+            for x in range(pixelValue[0],pixelValue[0]+4):
+                for y in range(pixelValue[1],pixelValue[1]+4):
+                    img1[x,y]=[0,0,255]
+
+            for x in range(pixelValue[0]-4,pixelValue[0]):
+                for y in range(pixelValue[1],pixelValue[1]+4):
+                    img1[x,y]=[0,0,255]
+
+            for x in range(pixelValue[0]-4,pixelValue[0]):
+                for y in range(pixelValue[1]-4,pixelValue[1]):
+                    img1[x,y]=[0,0,255]
+
+            for x in range(pixelValue[0],pixelValue[0]+4):
+                for y in range(pixelValue[1]-4,pixelValue[1]):
+                    img1[x,y]=[0,0,255]
+
+    # Converting String to Array
+    addressArray = []
+    iterator=0
+    while iterator < len(List):
+        cut = slice(iterator,iterator+4)
+        addressArray.append(List[cut])
+        iterator += 4
+    img = cv2.imread("GFloor.png")
+    img1 = cv2.imread("FFloor.png")
+    for no in addressArray:
+        if (no[0] == "G"):
+            shopLoc = GroundShop.index(no)
+            cord = GroundShopPixels[shopLoc]
+            MarkCurrLocG(cord)
+        elif(no[0] == "F"):
+            shopLoc = FirstShop.index(no)
+            cord = FirstShopPixels[shopLoc]
+            MarkCurrLocF(cord)
+    cv2.imwrite("showGround.png",img)
+    cv2.imwrite("showFirst.png",img1)
+    finalImage = cv2.imread('MoveToFirstFloor.png')
+    img = cv2.imread("showGround.png")
+    for y in range(500):
+        for x in range(25,525):
+            finalImage[x,y+50] = img[x-25,y]
+    cv2.imwrite('MoveToFirstFloorCopy.png',finalImage)
+    img = cv2.imread('showFirst.png')
+    for y in range(500):
+        for x in range(700,1200):
+            finalImage[x,y+50] = img[x-700,y]
+    cv2.imwrite('MoveToFirstFloorCopy.png',finalImage)  
+    with open("MoveToFirstFloorCopy.png", 'rb') as bites:
+        return send_file(
+                        io.BytesIO(bites.read()),
+                        attachment_filename='Floor.jpg',
+                        mimetype='image/jpg')
 app.run(host='0.0.0.0')
