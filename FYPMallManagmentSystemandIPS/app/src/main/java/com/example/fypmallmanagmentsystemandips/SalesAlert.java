@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.fypmallmanagmentsystemandips.Adapters.SalesRecViewAdapter;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -31,11 +33,13 @@ public class SalesAlert extends AppCompatActivity {
     MaterialButton btnShowOnMap;
     ArrayList<String> shopName = new ArrayList<>();
     ArrayList<String> shopOffers = new ArrayList<>();
-    ArrayList<ArrayList> test = new ArrayList<>();
+    ImageView imgSales;
     int shopNameSize;
     int iterator;
     String shpNm;
     String shpOff;
+    String ShopAddress;
+    String url = "http://192.168.100.20:5000";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +52,15 @@ public class SalesAlert extends AppCompatActivity {
         ProgressDialog progressDialog1 = new ProgressDialog(SalesAlert.this);
         progressDialog1.setTitle("Loading Sales Offers");
         progressDialog.show();
+        // Setting Up Progress Dialog for Loading Image
+        ProgressDialog progressDialog2 = new ProgressDialog(SalesAlert.this);
+        progressDialog2.setTitle("Fetching Map");
+        progressDialog2.setMessage("It will take few seconds.");
 
         // Initialising View Elements
         salesRec = findViewById(R.id.salesRec);
         btnShowOnMap = findViewById(R.id.btnShowOnMap);
+        imgSales = findViewById(R.id.imgSales);
 
         // Initiating Instance to firebase database.
         database = FirebaseDatabase.getInstance();
@@ -127,20 +136,29 @@ public class SalesAlert extends AppCompatActivity {
         btnShowOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Shop Names : ", String.valueOf(shopName));
-                Log.d("Shop Offers : ", String.valueOf(test));
+                progressDialog2.show();
+                ShopAddress = "";
+                for (int i = 0; i < shopName.size(); i++){
+                    DatabaseReference addrRef = database.getReference("ShopDetails").child(shopName.get(i)).child("shopAddress");
+                    int finalI = i;
+                    addrRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot != null){
+                                ShopAddress = ShopAddress + snapshot.getValue();
+                            }
+                            if (finalI == shopName.size()-1){
+                                Picasso.get().setLoggingEnabled(true);
+                                Picasso.get().load(url+"/from/"+ShopAddress).into(imgSales);
+                                progressDialog2.dismiss();
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }
             }
         });
-
-//        sales.add(new Sales("Nike","Upto 60% off."));
-//        sales.add(new Sales("Puma","Upto 60% off."));
-//        sales.add(new Sales("Adidas","Upto 60% off."));
-//        sales.add(new Sales("Mcdonalds","Buy one get one free"));
-//        sales.add(new Sales("Airlink",("Upto 10% off."+"\n"+"Hello")));
-//        // Sales Adapter
-//        SalesRecViewAdapter adapter = new SalesRecViewAdapter();
-//        adapter.setSales(sales);
-//        salesRec.setAdapter(adapter);
-//        salesRec.setLayoutManager(new LinearLayoutManager(SalesAlert.this));
     }
 }

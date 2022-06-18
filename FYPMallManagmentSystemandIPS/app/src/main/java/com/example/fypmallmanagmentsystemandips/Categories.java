@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.fypmallmanagmentsystemandips.Adapters.CategoriesRecViewAdapter;
@@ -21,22 +22,27 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class Categories extends AppCompatActivity {
 
     Spinner spnCategories;
-    MaterialButton btnSelect;
+    ImageView imgCategory;
+    MaterialButton btnSelect,btnShowMap;
     String[] categories1;
+    String[] name = new String[100];
     ArrayList<String> shopName = new ArrayList<>();
     ArrayList<String> categoryArray = new ArrayList<>();
     ArrayList<String> test = new ArrayList<>();
     String categorySelected;
+    String ShopAddress;
     int shopNameSize;
     RecyclerView categoryRecycler;
     FirebaseDatabase database;
     int position;
+    String url = "http://192.168.100.20:5000";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +54,17 @@ public class Categories extends AppCompatActivity {
         progressDialog.show();
         ProgressDialog progressDialog1 = new ProgressDialog(Categories.this);
         progressDialog1.setTitle("Loading Shops Categories");
+        // Setting Up Progress Dialog for Loading Image
+        ProgressDialog progressDialog2 = new ProgressDialog(Categories.this);
+        progressDialog2.setTitle("Fetching Map");
+        progressDialog2.setMessage("It will take few seconds.");
 
         // Declaring Elements
         spnCategories = findViewById(R.id.spnCategories);
         btnSelect = findViewById(R.id.btnSelect);
+        btnShowMap = findViewById(R.id.btnShowMap);
         categoryRecycler = findViewById(R.id.categoryRecycler);
+        imgCategory = findViewById(R.id.imgCategory);
 
         // Loading Data to Spinner
         categories1 = getResources().getStringArray(R.array.shopCategory);
@@ -141,6 +153,46 @@ public class Categories extends AppCompatActivity {
                 adapter.setCategory(categories);
                 categoryRecycler.setAdapter(adapter);
                 categoryRecycler.setLayoutManager(new LinearLayoutManager(Categories.this));
+            }
+        });
+        // Show Map Button Listener
+        btnShowMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("test", String.valueOf(test));
+                progressDialog2.show();
+                ShopAddress = "";
+                int iterator = 0;
+                for (int i = 0;i < test.size();i++){
+                    if (test.get(i).contains(categorySelected)){
+                        name[iterator] = shopName.get(i);
+                        iterator++;
+                    }
+                }
+                for (int i = 0; i < iterator;i++){
+                    DatabaseReference addrRef = database.getReference("ShopDetails").child(name[i]).child("shopAddress");
+                    int finalI = i;
+                    int finalR = iterator;
+                    addrRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot != null){
+                                ShopAddress = ShopAddress + snapshot.getValue();
+                            }
+                            if (finalI == finalR-1){
+                                Picasso.get().setLoggingEnabled(true);
+                                Picasso.get().load(url+"/from/"+ShopAddress).into(imgCategory);
+                                progressDialog2.dismiss();
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
         });
     }

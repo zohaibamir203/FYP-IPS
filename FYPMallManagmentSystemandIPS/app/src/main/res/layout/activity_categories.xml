@@ -7,60 +7,77 @@
     tools:context=".Categories"
     android:background="@color/backgroundBlue">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtCategory"
-        android:layout_centerHorizontal="true"
-        android:text="@string/browCategory"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"/>
-
-    <Spinner
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/spnCategories"
-        android:layout_below="@+id/txtCategory"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="@color/btnYellow"
-        />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCategory"
+                android:layout_centerHorizontal="true"
+                android:text="@string/browCategory"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSelect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spnCategories"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/btnYellow"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:text="@string/select"
-        android:textStyle="bold" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/spnCategories"
+                android:layout_below="@+id/txtCategory"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/btnYellow"
+                />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_below="@id/btnSelect"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="19dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spnCategories"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/btnYellow"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/select"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnShowMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/categoryRecycler"
-        android:backgroundTint="@color/btnYellow"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:text="@string/shwOnMap"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnSelect"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/categoryRecycler"
+                android:backgroundTint="@color/btnYellow"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/shwOnMap"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imgCategory"/>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
