@@ -448,14 +448,14 @@ def lift(loc,dest):
     if (str(loc)[0] == 'F') or (str(dest)[0] == 'F'):
         img = cv2.imread("FFloor.png")
         if (str(loc)[0] == 'F'):
-            if (str(loc) in FirstFShop):
-                StartPos = FirstFShop.index(str(loc))
-                EndPos = FirstFShop.index('Lift')
-                ShopPixel = FirstFPixels[StartPos]
-                LiftPixel = FirstFPixels[EndPos]
+            if (str(loc) in FirstSShop):
+                StartPos = FirstSShop.index(str(loc))
+                EndPos = FirstSShop.index('Lift')
+                ShopPixel = FirstSPixels[StartPos]
+                LiftPixel = FirstSPixels[EndPos]
                 MarkCurrLoc(ShopPixel)
                 MarkCurrLoc(LiftPixel)
-                CreatePath (StartPos,EndPos,FirstFPixels)
+                CreatePath (StartPos,EndPos,FirstSPixels)
             elif(str(loc) in FirstRShop):
                 StartPos = FirstRShop.index(str(loc))
                 EndPos = FirstRShop.index('Lift')
@@ -473,13 +473,13 @@ def lift(loc,dest):
                 MarkCurrLoc(LiftPixel)
                 CreatePath (StartPos,EndPos,FirstHPixels)   
             else:
-                StartPos = FirstSShop.index(str(loc))
-                EndPos = FirstSShop.index('Lift')
-                ShopPixel = FirstSPixels[StartPos]
-                LiftPixel = FirstSPixels[EndPos] 
+                StartPos = FirstFShop.index(str(loc))
+                EndPos = FirstFShop.index('Lift')
+                ShopPixel = FirstFPixels[StartPos]
+                LiftPixel = FirstFPixels[EndPos] 
                 MarkCurrLoc(ShopPixel)
                 MarkCurrLoc(LiftPixel)
-                CreatePath (StartPos,EndPos,FirstSPixels)   
+                CreatePath (StartPos,EndPos,FirstFPixels)   
         elif(str(dest)[0] == 'F'):
             if (str(dest) in FirstSShop):
                 StartPos = FirstSShop.index(str(dest))
