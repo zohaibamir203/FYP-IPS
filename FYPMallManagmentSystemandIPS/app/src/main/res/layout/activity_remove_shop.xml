@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RemoveShop"
-    android:background="@color/backgroundBlue" >
+    android:background="@drawable/background" >
 
     <TextView
         android:id="@+id/txtSearchShop"
@@ -15,7 +15,7 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,8 +30,8 @@
         android:layout_marginRight="120dp"
         android:hint="@string/shopName"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="@+id/txtSearchShop"
         app:layout_constraintStart_toStartOf="@+id/txtSearchShop"
         app:layout_constraintTop_toBottomOf="@+id/txtSearchShop">
@@ -44,17 +44,22 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:text="@string/search"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInputSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/txtInputSearch"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -106,6 +111,16 @@
             />
 
     </RelativeLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/removeAnimation"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/removeshop" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

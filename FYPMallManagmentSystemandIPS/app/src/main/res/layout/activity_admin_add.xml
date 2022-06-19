@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminAdd"
-    android:background="@color/backgroundBlue">
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/txtAddAdmin"
@@ -28,8 +28,8 @@
         android:layout_marginTop="35dp"
         android:layout_marginRight="120dp"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="@+id/txtAddAdmin"
         app:layout_constraintStart_toStartOf="@+id/txtAddAdmin"
         app:layout_constraintTop_toBottomOf="@+id/txtAddAdmin">
@@ -53,8 +53,8 @@
         android:layout_marginTop="20dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow">
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -64,13 +64,21 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdminSubmit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInputPassword"
         android:layout_marginTop="35dp"
+        android:layout_marginRight="130dp"
+        android:layout_marginLeft="130dp"
         android:text="@string/addAdmin1"
-        android:backgroundTint="@color/btnYellow"
-        android:textStyle="bold"/>
+        android:backgroundTint="@color/yellow"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:icon="@drawable/admin"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

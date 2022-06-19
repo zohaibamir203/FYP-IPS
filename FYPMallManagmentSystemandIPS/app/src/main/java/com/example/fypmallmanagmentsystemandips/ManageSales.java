@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,11 @@ public class ManageSales extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_sales);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#443CB6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
         // Initialise View Elements
         btnAddSale = findViewById(R.id.btnAddSale);
         txtSaleInput = findViewById(R.id.txtSaleInput);

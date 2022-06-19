@@ -5,21 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminPanel"
-    android:background="@color/backgroundBlue">
+    android:background="@drawable/background">
 
     <Button
         android:id="@+id/btnAddShop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
         android:text="@string/addShop"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="265dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="120dp"/>
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginRight="110dp"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:icon="@drawable/addshop"
+        app:iconSize="25dp"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"/>
 
     <Button
         android:id="@+id/btnRmvShop"
@@ -28,23 +35,50 @@
         android:layout_marginTop="10dp"
         android:text="@string/rmvShop"
         android:textStyle="bold"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintEnd_toEndOf="@+id/btnAddShop"
         app:layout_constraintStart_toStartOf="@+id/btnAddShop"
         app:layout_constraintTop_toBottomOf="@+id/btnAddShop"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="120dp"/>
+        android:layout_marginLeft="110dp"
+        android:layout_marginRight="110dp"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:icon="@drawable/removeshop"
+        app:iconSize="25dp"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/adminAnimantion"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRmvShop"
+        android:layout_marginTop="30dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/adminmenu" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdminSignOut"
-        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_marginLeft="110dp"
+        android:layout_marginRight="110dp"
+        android:backgroundTint="@color/green"
         android:text="@string/signOut"
-        android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRmvShop" />
+        app:layout_constraintTop_toBottomOf="@+id/adminAnimantion"
+        android:layout_marginTop="30dp"
+        app:icon="@drawable/signout"
+        app:iconSize="25dp"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundBlue"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/txtHome"
         app:layout_constraintEnd_toEndOf="@+id/txtHome"
         app:layout_constraintStart_toStartOf="@+id/txtHome" />
@@ -36,41 +36,74 @@
         android:id="@+id/btnCustomer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="130dp"
-        android:backgroundTint="@color/btnYellow"
+        android:layout_marginRight="120dp"
+        android:backgroundTint="@color/yellow"
         android:text="@string/home_btn_customer"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txtHome"
         app:layout_constraintStart_toStartOf="@+id/txtHome"
-        app:layout_constraintTop_toBottomOf="@+id/txtHome" />
+        app:layout_constraintTop_toBottomOf="@+id/txtHome"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:icon="@drawable/customer"
+        app:iconGravity="textStart"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShopkeeper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginRight="130dp"
-        android:backgroundTint="@color/btnYellow"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:backgroundTint="@color/yellow"
         android:text="@string/home_btn_shopkeeper"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/btnCustomer"
         app:layout_constraintStart_toStartOf="@+id/btnCustomer"
-        app:layout_constraintTop_toBottomOf="@+id/btnCustomer" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCustomer"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:cornerRadius="30dp"
+        app:icon="@drawable/shopkeeper"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdmin"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_btn_admin"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/admin"
         android:textColor="@color/white"
         android:textSize="15sp"
+        app:cornerRadius="30dp"
+        app:icon="@drawable/admin"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnShopkeeper" />
+        app:layout_constraintTop_toBottomOf="@+id/btnShopkeeper"
+        app:layout_constraintVertical_bias="0.318"
+        app:iconGravity="textStart"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/mallAnimation"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/mall" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

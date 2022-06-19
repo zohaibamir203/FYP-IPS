@@ -5,12 +5,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp"
     android:id="@+id/parent"
-    app:cardElevation="5dp"
-    android:backgroundTint="@color/backgroundBlue">
+    android:backgroundTint="@color/listBlue"
+    app:cardCornerRadius="20dp"
+    android:layout_margin="5dp"
+    app:cardMaxElevation="12dp"
+    app:cardPreventCornerOverlap="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
 
         <TextView
             android:id="@+id/txtSalesShop"
@@ -29,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="Shop Offer"
             android:textColor="@color/white"
-            android:paddingTop="5dp"
+            android:paddingTop="10dp"
             android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="1dp"

@@ -1,10 +1,13 @@
 package com.example.fypmallmanagmentsystemandips;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -40,7 +43,6 @@ public class LocateMe extends AppCompatActivity {
     String url = "http://192.168.100.20:5000";
 
     private String slctLocation,slctDestination;        // Selected Options in Spinner
-
     public String getSlctLocation() {
         return slctLocation;
     }
@@ -59,6 +61,12 @@ public class LocateMe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locate_me);
 
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#443CB6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
         // Setting Up Progress Dialog for Spinner
         ProgressDialog progressDialog = new ProgressDialog(LocateMe.this);
         progressDialog.setTitle("Loading Shops Information");

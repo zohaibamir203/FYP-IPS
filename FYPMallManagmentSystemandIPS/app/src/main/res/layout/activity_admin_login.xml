@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundBlue"
+    android:background="@drawable/background"
     tools:context=".ShopkeeperLogin">
 
     <TextView
@@ -29,8 +29,8 @@
         android:layout_marginTop="35dp"
         android:layout_marginRight="120dp"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="@+id/txtAdminAdd"
         app:layout_constraintStart_toStartOf="@+id/txtAdminAdd"
         app:layout_constraintTop_toBottomOf="@+id/txtAdminAdd">
@@ -50,8 +50,8 @@
         android:layout_marginTop="5dp"
         android:hint="@string/password"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         app:layout_constraintTop_toBottomOf="@+id/txtInputAdminAdd"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
@@ -68,29 +68,46 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdminLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textStyle="bold"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
         android:layout_marginTop="25dp"
         android:paddingRight="25dp"
         android:paddingLeft="25dp"
         app:layout_constraintEnd_toEndOf="@+id/txtInputAddPassword"
         app:layout_constraintStart_toStartOf="@+id/txtInputAddPassword"
-        app:layout_constraintTop_toBottomOf="@+id/txtInputAddPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtInputAddPassword"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:icon="@drawable/login"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdminAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="130dp"
+        android:layout_marginLeft="130dp"
         android:text="@string/addAdmin"
         android:textStyle="bold"
+        android:backgroundTint="@color/green"
         app:layout_constraintEnd_toEndOf="@+id/btnAdminLogin"
         app:layout_constraintStart_toStartOf="@+id/btnAdminLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnAdminLogin"
         android:layout_marginTop="3dp"
         android:textColor="@color/white"
-        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:iconTint="@color/white"
+        app:iconSize="30dp"
+        app:icon="@drawable/admin"
+        app:iconGravity="textStart"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

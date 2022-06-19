@@ -2,7 +2,7 @@
     <string name="app_name">FYP Mall Management System and IPS</string>
     <string name="home_btn_customer">Customer</string>
     <string name="home_btn_shopkeeper">Shopkeeper</string>
-    <string name="home_btn_admin"><u>Admin Login</u></string>
+    <string name="home_btn_admin">Admin Login</string>
     <string name="customer_menu_locateMe">Locate Me</string>
     <string name="customer_menu_salesAlert">Sales Alert</string>
     <string name="customer_menu_categories">Categories</string>
@@ -42,10 +42,10 @@
     <string name="shwOnMap">Show On Map</string>
     <string name="categories">Categories</string>
     <string name="browCategory">Browse By Category</string>
-    <string name="addAdmin"><u>Add Admin</u></string>
+    <string name="addAdmin">Add Admin</string>
     <string name="addAdmin1">Add Admin</string>
     <string name="emailAddress">Email Address</string>
-    <string name="signOut"><u>Sign Out</u></string>
+    <string name="signOut">Sign Out</string>
     <string name="slctAddress">Select Shop Address</string>
     <string name="slctCategory"><u>Select Category</u></string>
     <string name="assignCategory">Assign Category</string>

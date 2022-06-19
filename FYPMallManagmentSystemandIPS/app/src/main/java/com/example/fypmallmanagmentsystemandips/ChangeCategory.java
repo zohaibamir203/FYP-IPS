@@ -1,12 +1,15 @@
 package com.example.fypmallmanagmentsystemandips;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +53,11 @@ public class ChangeCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_category);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#443CB6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
         // Initialise the variable
         txtSelectCategory = findViewById(R.id.txtSelectCategory);
         btnConfirm = findViewById(R.id.btnConfirm);

@@ -1,9 +1,12 @@
 package com.example.fypmallmanagmentsystemandips;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -53,6 +56,10 @@ public class ShopkeeperMenu extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userUid = user.getUid();
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#443CB6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         btnChangeName.setOnClickListener(new View.OnClickListener() {
             @Override

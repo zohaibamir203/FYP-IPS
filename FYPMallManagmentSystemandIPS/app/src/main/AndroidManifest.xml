@@ -16,11 +16,13 @@
         <activity
             android:name=".AdminAdd"
             android:exported="false"
-            android:label="@string/addAdmin1" />
+            android:label="@string/addAdmin1"
+            android:parentActivityName=".AdminLogin"/>
         <activity
             android:name=".Categories"
             android:exported="false"
-            android:label="@string/categories" />
+            android:label="@string/categories"
+            android:parentActivityName=".CustomerMenu"/>
         <activity
             android:name=".ShopName"
             android:exported="false"
@@ -28,54 +30,65 @@
         <activity
             android:name=".SalesAlert"
             android:exported="false"
-            android:label="@string/customer_menu_salesAlert" />
+            android:label="@string/customer_menu_salesAlert"
+            android:parentActivityName=".CustomerMenu"/>
         <activity
             android:name=".RemoveShop"
             android:exported="false"
-            android:label="@string/rmvShop" />
+            android:label="@string/rmvShop"
+            android:parentActivityName=".AdminPanel"/>
         <activity
             android:name=".AddShop"
             android:exported="false"
-            android:label="@string/addShop" />
+            android:label="@string/addShop"
+            android:parentActivityName=".AdminPanel"/>
         <activity
             android:name=".AdminPanel"
             android:exported="false"
-            android:label="@string/adminPanel" />
+            android:label="@string/adminPanel"/>
         <activity
             android:name=".ChangeCategory"
             android:exported="false"
-            android:label="@string/assignCategory" />
+            android:label="@string/assignCategory"
+            android:parentActivityName=".ShopkeeperMenu"/>
         <activity
             android:name=".ManageSales"
             android:exported="false"
-            android:label="@string/mngSales" />
+            android:label="@string/mngSales"
+            android:parentActivityName=".ShopkeeperMenu"/>
         <activity
             android:name=".ChangeName"
             android:exported="false"
-            android:label="@string/ChangeName" />
+            android:label="@string/ChangeName"
+            android:parentActivityName=".ShopkeeperMenu"/>
         <activity
             android:name=".ShopkeeperMenu"
             android:exported="false"
-            android:label="@string/shopkeeperMenu" />
+            android:label="@string/shopkeeperMenu"/>
         <activity
             android:name=".LocateMe"
             android:exported="false"
-            android:label="@string/customer_menu_locateMe" />
+            android:label="@string/customer_menu_locateMe"
+            android:parentActivityName=".CustomerMenu"/>
         <activity
             android:name=".AdminLogin"
             android:exported="false"
-            android:label="@string/adminLogin" />
+            android:label="@string/adminLogin"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ShopkeeperLogin"
             android:exported="false"
-            android:label="@string/shopkeeperLogin" />
+            android:label="@string/shopkeeperLogin"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".CustomerMenu"
             android:exported="false"
-            android:label="@string/customerMenu" />
+            android:label="@string/customerMenu"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="The Mall">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

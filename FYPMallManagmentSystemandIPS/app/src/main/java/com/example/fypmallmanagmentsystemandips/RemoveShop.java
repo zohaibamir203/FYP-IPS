@@ -1,10 +1,13 @@
 package com.example.fypmallmanagmentsystemandips;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +40,11 @@ public class RemoveShop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_shop);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#443CB6"));
+        actionBar.setBackgroundDrawable(colorDrawable);
         database = FirebaseDatabase.getInstance();      // Creating instance of Database
 
         // Initialisation of all XML element

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShopName"
-    android:background="@color/backgroundBlue">
+    android:background="@drawable/background">
 
     <Spinner
         android:id="@+id/spnCurrentLocation"
@@ -14,7 +14,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:background="@color/btnYellow"/>
+        android:background="@color/yellow"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLocate"
@@ -23,9 +24,12 @@
         android:layout_below="@+id/spnCurrentLocation"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
         android:text="@string/customer_menu_locateMe"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundBlue"
+    android:background="@drawable/background"
     tools:context=".CustomerMenu">
 
     <com.google.android.material.button.MaterialButton
@@ -13,12 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
-        android:layout_marginTop="270dp"
-        android:backgroundTint="@color/btnYellow"
+        android:layout_marginTop="170dp"
+        android:backgroundTint="@color/yellow"
         android:text="@string/customer_menu_locateMe"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSalesAlert"
@@ -26,11 +29,14 @@
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintTop_toBottomOf="@+id/btnLocateMe"
         android:text="@string/customer_menu_salesAlert"
         android:layout_marginTop="15dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCategories"
@@ -39,12 +45,26 @@
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
         android:layout_marginTop="15dp"
-        android:backgroundTint="@color/btnYellow"
+        android:backgroundTint="@color/yellow"
         android:text="@string/customer_menu_categories"
-        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/btnSalesAlert"
-        tools:layout_editor_absoluteX="120dp" />
+        tools:layout_editor_absoluteX="120dp"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_marginTop="40dp"
+        android:id="@+id/cutomerAnimation"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnCategories"
+        app:layout_constraintStart_toStartOf="@+id/btnCategories"
+        app:layout_constraintTop_toBottomOf="@+id/btnCategories"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/customer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,50 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Categories"
-    android:background="@color/backgroundBlue">
+    android:background="@drawable/background">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/txtCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtCategory"
                 android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
                 android:text="@string/browCategory"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center_horizontal"/>
+                android:textSize="20sp" />
 
             <Spinner
+                android:id="@+id/spnCategories"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/spnCategories"
                 android:layout_below="@+id/txtCategory"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/btnYellow"
-                />
+                android:background="@color/yellow" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSelect"
-                android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/spnCategories"
                 android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="90dp"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="@color/btnYellow"
+                android:layout_marginRight="90dp"
+                android:backgroundTint="@color/yellow"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:text="@string/select"
+                android:textColor="@color/white"
                 android:textStyle="bold"
-                android:layout_gravity="center_horizontal"/>
+                app:cornerRadius="30dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categoryRecycler"
@@ -61,22 +67,31 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnShowMap"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/categoryRecycler"
-                android:backgroundTint="@color/btnYellow"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="90dp"
+                android:backgroundTint="@color/yellow"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:text="@string/shwOnMap"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:textStyle="bold"
-                android:layout_gravity="center_horizontal"/>
+                android:textColor="@color/white"
+                app:cornerRadius="30dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                app:icon="@drawable/showonmap"
+                app:iconSize="30dp"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart"/>
 
             <ImageView
+                android:id="@+id/imgCategory"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/imgCategory"/>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

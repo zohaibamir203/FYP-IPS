@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddShop"
-    android:background="@color/backgroundBlue">
+    android:background="@drawable/background">
 
     <TextView
+        android:id="@+id/txtAddShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtAddShop"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
         android:text="@string/addShop"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="100dp"/>
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInputShopName"
@@ -29,8 +29,8 @@
         android:layout_marginTop="20dp"
         android:hint="@string/shopName"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp">
 
@@ -51,8 +51,8 @@
         android:layout_marginTop="20dp"
         android:hint="@string/emailAddress"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp">
 
@@ -73,8 +73,8 @@
         android:layout_marginTop="20dp"
         android:hint="@string/password"
         android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/btnYellow"
-        app:hintTextColor="@color/btnYellow"
+        app:boxStrokeColor="@color/yellow"
+        app:hintTextColor="@color/yellow"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp">
 
@@ -114,14 +114,31 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdd"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spnAddress"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="150dp"
-        android:backgroundTint="@color/btnYellow"
+        android:layout_marginRight="130dp"
+        android:backgroundTint="@color/yellow"
         android:text="@string/addShop"
-        android:textStyle="bold" />
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:icon="@drawable/addshop"
+        app:iconSize="25dp"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/addAnimation"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/btnAdd"
+        android:layout_centerHorizontal="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/addshop" />
 
 </RelativeLayout>

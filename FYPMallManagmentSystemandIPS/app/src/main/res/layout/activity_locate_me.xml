@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LocateMe"
-    android:background="@color/backgroundBlue">
+    android:background="@drawable/background">
 
     <Spinner
         android:id="@+id/spnLocate"
@@ -15,7 +15,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
-        android:background="@color/btnYellow"
+        android:background="@color/yellow"
         android:theme="@style/booking_SpinnerTheme" />
 
     <Spinner
@@ -27,20 +27,27 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:theme="@style/booking_SpinnerTheme"
-        android:background="@color/btnYellow"
+        android:background="@color/yellow"
         android:layout_below="@+id/spnLocate"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRoute"
-        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spnDestination"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:backgroundTint="@color/btnYellow"
+        android:layout_marginRight="130dp"
+        android:backgroundTint="@color/yellow"
         android:text="@string/showRoute"
         android:textColor="@color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/white"
+        app:icon="@drawable/showroute"
+        app:iconGravity="textStart"/>
 
     <ImageView
         android:layout_width="match_parent"
