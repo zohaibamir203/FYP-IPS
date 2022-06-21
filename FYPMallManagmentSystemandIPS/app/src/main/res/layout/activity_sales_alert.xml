@@ -40,10 +40,11 @@
                 android:textColor="@color/white"
                 app:cornerRadius="30dp"
                 style="@style/Widget.MaterialComponents.Button.TextButton.Icon"/>
-            <ImageView
+            <com.ortiz.touchview.TouchImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/imgSales"
+                android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
                 />
         </LinearLayout>

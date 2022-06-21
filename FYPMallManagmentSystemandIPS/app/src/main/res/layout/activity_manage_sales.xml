@@ -7,69 +7,76 @@
     tools:context=".ManageSales"
     android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/txtAddSales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addSale"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="170dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtSaleInput"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/txtAddSales"
-        app:layout_constraintStart_toStartOf="@+id/txtAddSales"
-        app:layout_constraintTop_toBottomOf="@+id/txtAddSales"
-        android:layout_marginTop="20dp"
-        android:hint="@string/saleOffer"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="@color/white"
-        app:boxStrokeColor="@color/yellow"
-        app:hintTextColor="@color/yellow"
-        android:layout_marginRight="120dp"
-        android:layout_marginLeft="120dp">
-        <com.google.android.material.textfield.TextInputEditText
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtAddSales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addSale"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center_horizontal"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:id="@+id/btnAddSale"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="130dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/addSale"
-        android:textStyle="bold"
-        android:backgroundTint="@color/yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSaleInput"
-        android:textColor="@color/white"
-        app:cornerRadius="30dp"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        app:icon="@drawable/managesales"
-        app:iconSize="25dp"
-        app:iconTint="@color/white"
-        app:iconGravity="textStart"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtSaleInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/saleOffer"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="@color/yellow"
+                app:hintTextColor="@color/yellow"
+                android:layout_marginRight="120dp"
+                android:layout_marginLeft="120dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddSale"
-        app:layout_constraintStart_toStartOf="@+id/btnAddSale"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddSale"
-        android:layout_marginTop="30dp"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/managesales" />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:id="@+id/btnAddSale"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="130dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/addSale"
+                android:textStyle="bold"
+                android:backgroundTint="@color/yellow"
+                android:textColor="@color/white"
+                app:cornerRadius="30dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                app:icon="@drawable/managesales"
+                app:iconSize="25dp"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/addSaleRec"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="30dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/managesales"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

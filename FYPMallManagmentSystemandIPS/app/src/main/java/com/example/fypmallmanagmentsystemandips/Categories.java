@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.ortiz.touchview.TouchImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 public class Categories extends AppCompatActivity {
 
     Spinner spnCategories;
-    ImageView imgCategory;
+    TouchImageView imgCategory;
     MaterialButton btnSelect,btnShowMap;
     String[] categories1;
     String[] name = new String[100];

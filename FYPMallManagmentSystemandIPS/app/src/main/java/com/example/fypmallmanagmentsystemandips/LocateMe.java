@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.Formatter;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +30,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.ortiz.touchview.TouchImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -35,6 +38,7 @@ import java.util.ArrayList;
 public class LocateMe extends AppCompatActivity {
 
     Spinner spnLocate, spnDestination;
+    TouchImageView imgMap;
     MaterialButton btnRoute;
     FirebaseDatabase database;
     ArrayList<String> currLoc = new ArrayList<>();
@@ -55,6 +59,8 @@ public class LocateMe extends AppCompatActivity {
     public void setSlctDestination(String slctDestination) {
         this.slctDestination = slctDestination;
     }
+    private ScaleGestureDetector scaleGestureDetector;
+    private float mScaleFactor = 1.0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,7 @@ public class LocateMe extends AppCompatActivity {
         setContentView(R.layout.activity_locate_me);
 
 
+        // Setting Back Button and Changing Color of Action Bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ActionBar actionBar;
         actionBar = getSupportActionBar();
@@ -80,7 +87,7 @@ public class LocateMe extends AppCompatActivity {
         spnLocate = findViewById(R.id.spnLocate);
         spnDestination = findViewById(R.id.spnDestination);
         btnRoute = findViewById(R.id.btnRoute);
-
+        imgMap = findViewById(R.id.imgMap);
         // Setting Database Instance
         database = FirebaseDatabase.getInstance();
         // Setting Database reference to get name of Shops.
@@ -171,7 +178,6 @@ public class LocateMe extends AppCompatActivity {
         btnRoute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageView imgMap = findViewById(R.id.imgMap);
                 //  Check if both current and destination address on same floor and then fetch map accordingly.
                 if (currAddr.charAt(0) == destAddr.charAt(0)){
                     progressDialog1.show();
@@ -188,10 +194,5 @@ public class LocateMe extends AppCompatActivity {
                 }
             }
         });
-
-        // Getting IP Address
-//        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
-//        String ipAddress = Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress()) + ":5000/from/G-04/to/F-40/lift";
-//        Toast.makeText(this, ipAddress, Toast.LENGTH_SHORT).show();
     }
 }

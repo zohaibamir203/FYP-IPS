@@ -56,6 +56,7 @@ public class AdminPanel extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         btnAdminSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

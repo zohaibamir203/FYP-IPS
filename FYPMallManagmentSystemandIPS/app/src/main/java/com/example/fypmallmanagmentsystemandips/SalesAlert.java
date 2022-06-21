@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.ortiz.touchview.TouchImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,11 +37,11 @@ public class SalesAlert extends AppCompatActivity {
     MaterialButton btnShowOnMap;
     ArrayList<String> shopName = new ArrayList<>();
     ArrayList<String> shopOffers = new ArrayList<>();
-    ImageView imgSales;
+    TouchImageView imgSales;
     int shopNameSize;
     int iterator;
     String shpNm;
-    String shpOff;
+    String shpOff = "";
     String ShopAddress;
     String url = "http://192.168.100.20:5000";
 
